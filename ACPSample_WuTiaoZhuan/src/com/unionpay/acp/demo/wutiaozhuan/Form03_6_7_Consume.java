@@ -66,6 +66,9 @@ public class Form03_6_7_Consume  extends HttpServlet  {
 		//消费：交易要素卡号+验证码看业务配置(默认要短信验证码)。
 		Map<String,String> customerInfoMap = new HashMap<String,String>();
 		customerInfoMap.put("smsCode", "111111");			    	//短信验证码,测试环境不会真实收到短信，固定填111111
+//		customerInfoMap.put("certifTp", "01");
+//		customerInfoMap.put("certifId", AcpService.encryptData("341126197709218366", DemoBase.encoding));
+//		customerInfoMap.put("pin", AcpService.encryptData("123456", DemoBase.encoding));
 		
 		////////////如果商户号开通了【商户对敏感信息加密】的权限那么需要对 accNo，pin和phoneNo，cvn2，expired加密（如果这些上送的话），对敏感信息加密使用：
 		String accNo = AcpService.encryptData("6216261000000000018", DemoBase.encoding);  //这里测试的时候使用的是测试卡号，正式环境请使用真实卡号
