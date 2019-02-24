@@ -121,7 +121,8 @@ public class Form03_6_2_OpenCard_Front  extends HttpServlet  {
 	
 
 		/**请求参数设置完毕，以下对请求参数进行签名并生成html表单，将表单写入浏览器跳转打开银联页面**/
-		Map<String, String> reqData = AcpService.sign(contentData,"d://certs//acp_test_sign_inst.pfx","000000",DemoBase.encoding);            		 //报文中certId,signature的值是在signData方法中获取并自动赋值的，只要证书配置正确即可。
+//		Map<String, String> reqData = AcpService.sign(contentData,"d://certs//acp_test_sign_inst.pfx","000000",DemoBase.encoding);            		 //报文中certId,signature的值是在signData方法中获取并自动赋值的，只要证书配置正确即可。
+		Map<String, String> reqData = AcpService.sign(contentData, DemoBase.encoding);          		 //报文中certId,signature的值是在signData方法中获取并自动赋值的，只要证书配置正确即可。
 		String requestFrontUrl = SDKConfig.getConfig().getFrontRequestUrl();   								 //获取请求银联的前台地址：对应属性文件acp_sdk.properties文件中的acpsdk.frontTransUrl
 		String html = AcpService.createAutoFormHtml(requestFrontUrl,reqData,DemoBase.encoding);     	 //生成自动跳转的Html表单
 		
